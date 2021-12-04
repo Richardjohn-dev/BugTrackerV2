@@ -10,10 +10,42 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BugTracker.Domain\BugTracker.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\TicketPriorities\Handlers\Commands\" />
+    <Folder Include="Features\TicketPriorities\Handlers\Queries\" />
+    <Folder Include="Features\TicketPriorities\Requests\Commands\" />
+    <Folder Include="Features\TicketPriorities\Requests\Queries\" />
+    <Folder Include="Features\TicketComments\Handlers\Commands\" />
+    <Folder Include="Features\TicketComments\Handlers\Queries\" />
+    <Folder Include="Features\TicketComments\Requests\Commands\" />
+    <Folder Include="Features\TicketComments\Requests\Queries\" />
+    <Folder Include="Features\TicketAttachments\Handlers\Commands\" />
+    <Folder Include="Features\TicketAttachments\Handlers\Queries\" />
+    <Folder Include="Features\TicketAttachments\Requests\Commands\" />
+    <Folder Include="Features\TicketAttachments\Requests\Queries\" />
+    <Folder Include="Features\Tickets\Handlers\Commands\" />
+    <Folder Include="Features\Tickets\Handlers\Queries\" />
+    <Folder Include="Features\Tickets\Requests\Commands\" />
+    <Folder Include="Features\Tickets\Requests\Queries\" />
+    <Folder Include="Features\TicketHistories\Handlers\Commands\" />
+    <Folder Include="Features\TicketHistories\Handlers\Queries\" />
+    <Folder Include="Features\TicketHistories\Requests\Commands\" />
+    <Folder Include="Features\TicketHistories\Requests\Queries\" />
+    <Folder Include="Features\Projects\Handlers\Commands\" />
+    <Folder Include="Features\Projects\Handlers\Queries\" />
+    <Folder Include="Features\Projects\Requests\Commands\" />
+    <Folder Include="Features\Projects\Requests\Queries\" />
+    <Folder Include="Features\Users\Handlers\Commands\" />
+    <Folder Include="Features\Users\Handlers\Queries\" />
+    <Folder Include="Features\Users\Requests\Commands\" />
+    <Folder Include="Features\Users\Requests\Queries\" />
   </ItemGroup>
 
 </Project>
