@@ -30,10 +30,6 @@
     <Folder Include="Features\TicketHistories\Handlers\Queries\" />
     <Folder Include="Features\TicketHistories\Requests\Commands\" />
     <Folder Include="Features\TicketHistories\Requests\Queries\" />
-    <Folder Include="Features\Projects\Handlers\Commands\" />
-    <Folder Include="Features\Projects\Handlers\Queries\" />
-    <Folder Include="Features\Projects\Requests\Commands\" />
-    <Folder Include="Features\Projects\Requests\Queries\" />
     <Folder Include="Features\Users\Handlers\Commands\" />
     <Folder Include="Features\Users\Handlers\Queries\" />
     <Folder Include="Features\Users\Requests\Commands\" />
