@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BugTracker.Application.DTOs.TicketType
+namespace BugTracker.Application.DTOs.TicketPriority
 {
     public class CreateTicketPriorityDto
     {

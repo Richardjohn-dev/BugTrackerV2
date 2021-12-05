@@ -18,10 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\TicketPriorities\Handlers\Commands\" />
-    <Folder Include="Features\TicketPriorities\Handlers\Queries\" />
-    <Folder Include="Features\TicketPriorities\Requests\Commands\" />
-    <Folder Include="Features\TicketPriorities\Requests\Queries\" />
     <Folder Include="Features\TicketComments\Handlers\Commands\" />
     <Folder Include="Features\TicketComments\Handlers\Queries\" />
     <Folder Include="Features\TicketComments\Requests\Commands\" />
