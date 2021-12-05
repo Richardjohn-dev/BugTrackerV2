@@ -41,8 +41,12 @@ namespace BugTracker.Domain.Entities
         [DisplayName("Owned By")]
         public string OwnerUserId { get; set; }
 
+       // [DisplayName("Created By")]
+      //  public string CreatedByUserUserId { get; set; }
+
 
         // nav
+       // public virtual BTUser CreatedByUser { get; set; }      
         public virtual BTUser OwnerUser { get; set; }
         public virtual BTUser AssigneeUser { get; set; }
         public virtual TicketStatus TicketStatus { get; set; }

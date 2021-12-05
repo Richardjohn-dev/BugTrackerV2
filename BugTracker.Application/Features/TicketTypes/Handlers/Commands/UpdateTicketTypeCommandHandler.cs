@@ -27,9 +27,7 @@ namespace BugTracker.Application.Features.TicketTypes.Handlers.Commands
         {
             var ticketType = await _ticketTypeRepository.GetAsync(request.TicketTypeDto.Id);
             _mapper.Map(request.TicketTypeDto, ticketType);
-
             await _ticketTypeRepository.UpdateAsync(ticketType);
-
             return Unit.Value;
         }
     }
