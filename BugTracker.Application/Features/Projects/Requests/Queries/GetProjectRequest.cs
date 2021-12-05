@@ -3,7 +3,7 @@ using MediatR;
 
 namespace BugTracker.Application.Features.Projects.Requests.Queries
 {
-    public class GetProjectRequest : IRequest<ProjectDto>
+    public class GetProjectRequest : IRequest<CreateProjectDto>
     {
         public int Id { get; set; }
     }

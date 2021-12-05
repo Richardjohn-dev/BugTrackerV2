@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Application.Features.Projects.Handlers.Queries
 {
-    public class GetProjectListRequestHandler : IRequestHandler<GetProjectListRequest, List<ProjectDto>>
+    public class GetProjectListRequestHandler : IRequestHandler<GetProjectListRequest, List<CreateProjectDto>>
     {
         private readonly IProjectRepository _projectRepository;
         private readonly IMapper _mapper;
@@ -20,10 +20,10 @@ namespace BugTracker.Application.Features.Projects.Handlers.Queries
             _mapper = mapper;
         }
 
-        public async Task<List<ProjectDto>> Handle(GetProjectListRequest request, CancellationToken cancellationToken)
+        public async Task<List<CreateProjectDto>> Handle(GetProjectListRequest request, CancellationToken cancellationToken)
         {
             var projects = await _projectRepository.GetAllAsync();
-            return _mapper.Map<List<ProjectDto>>(projects);
+            return _mapper.Map<List<CreateProjectDto>>(projects);
         }
     }
 }
