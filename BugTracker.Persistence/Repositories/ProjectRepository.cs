@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BugTracker.Application.DTOs.Common
+namespace BugTracker.Persistence.Repositories
 {
-    public class BaseDto
+    public class ProjectRepository
     {
-        public int Id { get; set; }
+        
     }
 }

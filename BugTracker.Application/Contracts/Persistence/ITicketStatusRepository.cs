@@ -1,6 +1,6 @@
 ﻿using BugTracker.Domain.Entities;
 
-namespace CleanArchitecture.LeaveManagement.Application.Persistence.Contracts
+namespace BugTracker.Application.Contracts.Persistence
 {
     public interface ITicketStatusRepository : IGenericRepository<TicketStatus>
     {

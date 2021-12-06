@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Persistence\Contracts\IProjectPriorityRepository.cs" />
+    <Compile Remove="Contracts\Persistence\IProjectPriorityRepository.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BugTracker.Application.Features.Projects.Requests.Commands;
-using BugTracker.Application.Persistence.Contracts;
+using BugTracker.Application.Contracts.Persistence;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;

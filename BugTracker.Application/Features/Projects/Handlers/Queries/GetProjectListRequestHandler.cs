@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BugTracker.Application.DTOs.Project;
 using BugTracker.Application.Features.Projects.Requests.Queries;
-using BugTracker.Application.Persistence.Contracts;
+using BugTracker.Application.Contracts.Persistence;
 using MediatR;
 using System.Collections.Generic;
 using System.Threading;

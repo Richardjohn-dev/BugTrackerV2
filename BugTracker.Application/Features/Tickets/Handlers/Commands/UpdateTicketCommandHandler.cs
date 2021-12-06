@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using BugTracker.Application.Features.Tickets.Requests.Commands;
-using CleanArchitecture.LeaveManagement.Application.Persistence.Contracts;
+using BugTracker.Application.Contracts.Persistence;
 using MediatR;
 using System;
 using System.Collections.Generic;

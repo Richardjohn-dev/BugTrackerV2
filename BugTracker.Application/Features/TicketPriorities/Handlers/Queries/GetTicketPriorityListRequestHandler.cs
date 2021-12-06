@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using BugTracker.Application.DTOs.TicketPriority;
 using BugTracker.Application.Features.Tickets.Requests.Queries;
-using CleanArchitecture.LeaveManagement.Application.Persistence.Contracts;
+using BugTracker.Application.Contracts.Persistence;
 using MediatR;
 using System;
 using System.Collections.Generic;
