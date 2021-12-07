@@ -55,9 +55,9 @@ namespace BugTracker.Domain.Entities
 
         public virtual Project Project { get; set; }
 
-        public virtual ICollection<TicketComment> Comments { get; set; } = new HashSet<TicketComment>();
-        public virtual ICollection<TicketComment> Attachments { get; set; } = new HashSet<TicketComment>();
-        public virtual ICollection<TicketHistory> History { get; set; } = new HashSet<TicketHistory>();
+        public virtual ICollection<TicketComment> TicketComments { get; set; } = new HashSet<TicketComment>();
+        public virtual ICollection<TicketComment> TicketAttachments { get; set; } = new HashSet<TicketComment>();
+        public virtual ICollection<TicketHistory> TicketHistory { get; set; } = new HashSet<TicketHistory>();
 
     }
 }

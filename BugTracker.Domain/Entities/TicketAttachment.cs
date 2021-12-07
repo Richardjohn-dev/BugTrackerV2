@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BugTracker.Domain.Entities
 {
-    public class TicketAttachment : UserTicketEntity
+    public class TicketAttachment : BaseDomainEntity
     {      
         [NotMapped]
         [DataType(DataType.Upload)]
@@ -16,7 +16,16 @@ namespace BugTracker.Domain.Entities
         public string FileName { get; set; }
         public byte[] FileData { get; set; }
         [DisplayName("File Extension")]
-        public string FileContentType { get; set; }     
+        public string FileContentType { get; set; }
+
+        [DisplayName("Ticket")]
+        public string TicketId { get; set; }
+
+        [DisplayName("User")]
+        public string UserId { get; set; }
+
+        public virtual Ticket Ticket { get; set; }
+        public virtual BTUser User { get; set; }
 
     }
 }

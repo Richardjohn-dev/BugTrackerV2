@@ -18,7 +18,7 @@ namespace BugTracker.Persistence
         {
             services.AddDbContext<BugTrackerDbContext>(options =>
                options.UseSqlServer(
-                   configuration.GetConnectionString("LeaveManagementConnectionString")));
+                   configuration.GetConnectionString("BugTrackerConnectionString")));
 
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));

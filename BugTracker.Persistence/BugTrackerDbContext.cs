@@ -1,6 +1,7 @@
 ﻿using BugTracker.Domain.Entities;
 using BugTracker.Domain.Entities.Common;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,7 @@ namespace BugTracker.Persistence
         public BugTrackerDbContext(DbContextOptions<BugTrackerDbContext> options) : base(options)
         {
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(BugTrackerDbContext).Assembly);
-        }
+ 
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
@@ -34,17 +32,26 @@ namespace BugTracker.Persistence
             return base.SaveChangesAsync(cancellationToken);
         }
 
+        public DbSet<Ticket> Tickets { get; set; }
         public DbSet<TicketType> TicketTypes { get; set; }
         public DbSet<TicketStatus> TicketStatuses{ get; set; }
         public DbSet<TicketPriority> TicketPriorities { get; set; }
         public DbSet<TicketHistory> TicketHistories { get; set; }
         public DbSet<TicketComment> TicketComments { get; set; }
         public DbSet<TicketAttachment> TicketAttachments { get; set; }
-        public DbSet<Ticket> Tickets { get; set; }
         public DbSet<Project> Projects { get; set; }
-      //  public DbSet<BTUser> Projects { get; set; }
+        //  public DbSet<BTUser> Projects { get; set; }
 
 
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.ApplyConfigurationsFromAssembly(typeof(BugTrackerDbContext).Assembly);
+
+            builder.Entity<Ticket>()
+                .HasMany(x => x.TicketComments)
+                .WithOne(t => t.Ticket);
+        }
     }
    
 }
