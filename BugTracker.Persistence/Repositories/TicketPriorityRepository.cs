@@ -8,13 +8,11 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Persistence.Repositories
 {
-    public class ProjectRepository : GenericRepository<Project>, IProjectRepository
+    public class TicketPriorityRepository : GenericRepository<TicketPriority>, ITicketPriorityRepository
     {
-        private readonly BugTrackerDbContext _dbContext;
-
-        public ProjectRepository(BugTrackerDbContext dbContext) : base(dbContext)
+        public TicketPriorityRepository(BugTrackerDbContext dbContext) : base(dbContext)
         {
-            _dbContext = dbContext;
-        }       
+
+        }
     }
 }
