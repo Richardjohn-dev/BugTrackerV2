@@ -1,5 +1,6 @@
 ﻿using BugTracker.Domain.Entities;
 using BugTracker.Domain.Entities.Common;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Persistence
 {
-    public class BugTrackerDbContext : DbContext
+    public class BugTrackerDbContext : IdentityDbContext<BTUser>
     {
         public BugTrackerDbContext(DbContextOptions<BugTrackerDbContext> options) : base(options)
         {
@@ -46,11 +47,14 @@ namespace BugTracker.Persistence
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
+
             builder.ApplyConfigurationsFromAssembly(typeof(BugTrackerDbContext).Assembly);
 
-            builder.Entity<Ticket>()
-                .HasMany(x => x.TicketComments)
-                .WithOne(t => t.Ticket);
+            builder.Entity<TicketComment>()
+                .HasOne(t => t.Ticket)
+                .WithMany(tc => tc.TicketComments)
+                .HasForeignKey(t => t.TicketId);
         }
     }
    

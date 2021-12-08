@@ -9,7 +9,7 @@ namespace BugTracker.Domain.Entities
         public string Comment { get; set; }
 
         [DisplayName("Ticket")]
-        public string TicketId { get; set; }
+        public int TicketId { get; set; }
 
         [DisplayName("User")]
         public string UserId { get; set; }

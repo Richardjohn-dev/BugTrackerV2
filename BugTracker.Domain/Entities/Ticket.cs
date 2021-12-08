@@ -12,15 +12,14 @@ namespace BugTracker.Domain.Entities
     public class Ticket : BaseDomainEntity
     {
         [Required]
-        [StringLength(150)]
+        [StringLength(100)]
         [DisplayName("Title")]
         public string Title { get; set; }
 
         [Required]
-        [StringLength(500)]
+        [StringLength(300)]
         [DisplayName("Description")]
         public string Description { get; set; }
-
 
        
         [DisplayName("Project")]
@@ -41,12 +40,9 @@ namespace BugTracker.Domain.Entities
         [DisplayName("Owned By")]
         public string OwnerUserId { get; set; }
 
-       // [DisplayName("Created By")]
-      //  public string CreatedByUserUserId { get; set; }
-
-
+     
         // nav
-       // public virtual BTUser CreatedByUser { get; set; }      
+     
         public virtual BTUser OwnerUser { get; set; }
         public virtual BTUser AssigneeUser { get; set; }
         public virtual TicketStatus TicketStatus { get; set; }

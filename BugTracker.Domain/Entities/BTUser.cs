@@ -1,5 +1,6 @@
 ﻿using BugTracker.Domain.Entities.Common;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,16 +12,8 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Domain.Entities
 {
-    public class BTUser : BaseDomainEntity
-    {
-        //public int id { get; set; }
-        //[DataType(DataType.Date)]
-        //public DateTimeOffset DateCreated { get; set; }
-        //public string CreatedBy { get; set; } // could update to Id later..
-
-        //[DataType(DataType.Date)]
-        //public DateTimeOffset? LastModifiedDate { get; set; }
-        //public string LastModifiedBy { get; set; }
+    public class BTUser : IdentityUser
+    {     
 
         [Required]
         [StringLength(20)]
