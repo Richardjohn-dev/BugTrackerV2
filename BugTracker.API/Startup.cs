@@ -1,8 +1,10 @@
+using BugTracker.Domain.Entities;
 using BugTracker.Persistence;
 using CleanArchitecture.LeaveManagement.Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,8 +34,12 @@ namespace BugTracker.API
             services.AddAuthentication();
 
             services.ConfigureApplicationServices();
-           //services.ConfigureInfrastructureServices(Configuration);
-            services.ConfigurePersistenceServices(Configuration);
+            //services.ConfigureInfrastructureServices(Configuration);
+            //services.AddAuthentication();
+            //services.AddIdentity<BTUser, IdentityRole>()
+            //   .AddEntityFrameworkStores<BugTrackerDbContext>().AddDefaultTokenProviders();
+
+            services.ConfigurePersistenceServices(Configuration);           
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

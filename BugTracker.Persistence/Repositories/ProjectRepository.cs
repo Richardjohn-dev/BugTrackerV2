@@ -15,6 +15,41 @@ namespace BugTracker.Persistence.Repositories
         public ProjectRepository(BugTrackerDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
-        }       
+        }
+
+        public Task<bool> AddProjectManagerAsync(string userId, int projectId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> AddUserToProjectAsync(string userId, int projectId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<BTUser>> GetProjectDevelopersAsync(int projectId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<BTUser> GetProjectManagerAsync(int projectId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<BTUser>> GetProjectMembersByRoleAsync(int projectId, string role)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveProjectManagerAsync(int projectId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveUserFromProjectAsync(string userId, int projectId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
