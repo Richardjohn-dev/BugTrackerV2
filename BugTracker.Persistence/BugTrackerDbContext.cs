@@ -56,10 +56,6 @@ namespace BugTracker.Persistence
                 .WithMany(tc => tc.TicketComments)
                 .HasForeignKey(t => t.TicketId);
 
-            //builder.Entity<Ticket>()
-            //   .HasOne(p => p.Project)
-            //   .WithMany(t => t.Tickets)
-            //   .HasForeignKey(p => p.ProjectId);
         }
     }
    

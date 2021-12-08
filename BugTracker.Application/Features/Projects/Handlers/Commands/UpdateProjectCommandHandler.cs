@@ -19,8 +19,8 @@ namespace BugTracker.Application.Features.Projects.Handlers.Commands
         }
         public async Task<Unit> Handle(UpdateProjectCommand request, CancellationToken cancellationToken)
         {
-            var project = await _projectRepository.GetAsync(request.UpdateProjectDto.Id);
-            _mapper.Map(request.UpdateProjectDto, project);
+            var project = await _projectRepository.GetAsync(request.ProjectDto.Id);
+            _mapper.Map(request.ProjectDto, project);
             await _projectRepository.UpdateAsync(project);
             return Unit.Value;
         }

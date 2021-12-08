@@ -5,6 +5,6 @@ namespace BugTracker.Application.Features.Projects.Requests.Commands
 {
     public class UpdateProjectCommand : IRequest<Unit>
     {
-        public ProjectDto UpdateProjectDto { get; set; }
+        public ProjectDto ProjectDto { get; set; }
     }
 }
