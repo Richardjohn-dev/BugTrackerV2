@@ -200,28 +200,16 @@ namespace BugTracker.Persistence.Migrations
                     b.Property<string>("OwnerUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("ProjectId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProjectId1")
+                    b.Property<int>("ProjectId")
                         .HasColumnType("int");
 
-                    b.Property<string>("TicketPriorityId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("TicketPriorityId1")
+                    b.Property<int>("TicketPriorityId")
                         .HasColumnType("int");
 
-                    b.Property<string>("TicketStatusId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("TicketStatusId1")
+                    b.Property<int>("TicketStatusId")
                         .HasColumnType("int");
 
-                    b.Property<string>("TicketTypeId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("TicketTypeId1")
+                    b.Property<int>("TicketTypeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -235,13 +223,13 @@ namespace BugTracker.Persistence.Migrations
 
                     b.HasIndex("OwnerUserId");
 
-                    b.HasIndex("ProjectId1");
+                    b.HasIndex("ProjectId");
 
-                    b.HasIndex("TicketPriorityId1");
+                    b.HasIndex("TicketPriorityId");
 
-                    b.HasIndex("TicketStatusId1");
+                    b.HasIndex("TicketStatusId");
 
-                    b.HasIndex("TicketTypeId1");
+                    b.HasIndex("TicketTypeId");
 
                     b.ToTable("Tickets");
                 });
@@ -611,19 +599,27 @@ namespace BugTracker.Persistence.Migrations
 
                     b.HasOne("BugTracker.Domain.Entities.Project", "Project")
                         .WithMany("Tickets")
-                        .HasForeignKey("ProjectId1");
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("BugTracker.Domain.Entities.TicketPriority", "TicketPriority")
                         .WithMany()
-                        .HasForeignKey("TicketPriorityId1");
+                        .HasForeignKey("TicketPriorityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("BugTracker.Domain.Entities.TicketStatus", "TicketStatus")
                         .WithMany()
-                        .HasForeignKey("TicketStatusId1");
+                        .HasForeignKey("TicketStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("BugTracker.Domain.Entities.TicketType", "TicketType")
                         .WithMany()
-                        .HasForeignKey("TicketTypeId1");
+                        .HasForeignKey("TicketTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("AssigneeUser");
 

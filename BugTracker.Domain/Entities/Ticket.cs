@@ -23,16 +23,16 @@ namespace BugTracker.Domain.Entities
 
        
         [DisplayName("Project")]
-        public string ProjectId { get; set; }
+        public int ProjectId { get; set; }
 
         [DisplayName("Type")]
-        public string TicketTypeId { get; set; }
+        public int TicketTypeId { get; set; }
 
         [DisplayName("Priority")]
-        public string TicketPriorityId { get; set; }
+        public int TicketPriorityId { get; set; }
 
         [DisplayName("Status")]
-        public string TicketStatusId { get; set; }
+        public int TicketStatusId { get; set; }
 
         [DisplayName("Assigned To")]
         public string AssigneeUserId { get; set; }
@@ -48,9 +48,7 @@ namespace BugTracker.Domain.Entities
         public virtual TicketStatus TicketStatus { get; set; }
         public virtual TicketPriority TicketPriority { get; set; }
         public virtual TicketType TicketType { get; set; }
-
         public virtual Project Project { get; set; }
-
         public virtual ICollection<TicketComment> TicketComments { get; set; } = new HashSet<TicketComment>();
         public virtual ICollection<TicketComment> TicketAttachments { get; set; } = new HashSet<TicketComment>();
         public virtual ICollection<TicketHistory> TicketHistory { get; set; } = new HashSet<TicketHistory>();

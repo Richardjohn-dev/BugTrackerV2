@@ -19,7 +19,6 @@ namespace BugTracker.Domain.Entities
         [DisplayName("Title")]
         public string Name { get; set; }
 
-
         [Required]
         [StringLength(200)]
         [DisplayName("Description")]

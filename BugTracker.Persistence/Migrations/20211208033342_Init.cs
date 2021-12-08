@@ -264,16 +264,12 @@ namespace BugTracker.Persistence.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
-                    ProjectId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TicketTypeId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TicketPriorityId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    TicketStatusId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProjectId = table.Column<int>(type: "int", nullable: false),
+                    TicketTypeId = table.Column<int>(type: "int", nullable: false),
+                    TicketPriorityId = table.Column<int>(type: "int", nullable: false),
+                    TicketStatusId = table.Column<int>(type: "int", nullable: false),
                     AssigneeUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     OwnerUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    TicketStatusId1 = table.Column<int>(type: "int", nullable: true),
-                    TicketPriorityId1 = table.Column<int>(type: "int", nullable: true),
-                    TicketTypeId1 = table.Column<int>(type: "int", nullable: true),
-                    ProjectId1 = table.Column<int>(type: "int", nullable: true),
                     DateCreated = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastModifiedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
@@ -295,29 +291,29 @@ namespace BugTracker.Persistence.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Tickets_Projects_ProjectId1",
-                        column: x => x.ProjectId1,
+                        name: "FK_Tickets_Projects_ProjectId",
+                        column: x => x.ProjectId,
                         principalTable: "Projects",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Tickets_TicketPriorities_TicketPriorityId1",
-                        column: x => x.TicketPriorityId1,
+                        name: "FK_Tickets_TicketPriorities_TicketPriorityId",
+                        column: x => x.TicketPriorityId,
                         principalTable: "TicketPriorities",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Tickets_TicketStatuses_TicketStatusId1",
-                        column: x => x.TicketStatusId1,
+                        name: "FK_Tickets_TicketStatuses_TicketStatusId",
+                        column: x => x.TicketStatusId,
                         principalTable: "TicketStatuses",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Tickets_TicketTypes_TicketTypeId1",
-                        column: x => x.TicketTypeId1,
+                        name: "FK_Tickets_TicketTypes_TicketTypeId",
+                        column: x => x.TicketTypeId,
                         principalTable: "TicketTypes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -503,24 +499,24 @@ namespace BugTracker.Persistence.Migrations
                 column: "OwnerUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_ProjectId1",
+                name: "IX_Tickets_ProjectId",
                 table: "Tickets",
-                column: "ProjectId1");
+                column: "ProjectId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_TicketPriorityId1",
+                name: "IX_Tickets_TicketPriorityId",
                 table: "Tickets",
-                column: "TicketPriorityId1");
+                column: "TicketPriorityId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_TicketStatusId1",
+                name: "IX_Tickets_TicketStatusId",
                 table: "Tickets",
-                column: "TicketStatusId1");
+                column: "TicketStatusId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tickets_TicketTypeId1",
+                name: "IX_Tickets_TicketTypeId",
                 table: "Tickets",
-                column: "TicketTypeId1");
+                column: "TicketTypeId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
