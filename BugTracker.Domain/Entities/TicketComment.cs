@@ -15,6 +15,6 @@ namespace BugTracker.Domain.Entities
         public string UserId { get; set; }
 
         public virtual Ticket Ticket { get; set; }
-        public virtual BTUser User { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

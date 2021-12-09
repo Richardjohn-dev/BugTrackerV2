@@ -1,6 +1,6 @@
 using BugTracker.Domain.Entities;
 using BugTracker.Persistence;
-using CleanArchitecture.LeaveManagement.Application;
+using BugTracker.Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,11 +34,7 @@ namespace BugTracker.API
             services.AddAuthentication();
 
             services.ConfigureApplicationServices();
-            //services.ConfigureInfrastructureServices(Configuration);
-            //services.AddAuthentication();
-            //services.AddIdentity<BTUser, IdentityRole>()
-            //   .AddEntityFrameworkStores<BugTrackerDbContext>().AddDefaultTokenProviders();
-
+                    
             services.ConfigurePersistenceServices(Configuration);           
 
             services.AddControllers();

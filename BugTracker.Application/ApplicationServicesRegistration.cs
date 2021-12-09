@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchitecture.LeaveManagement.Application
+namespace BugTracker.Application
 {
     public static class ApplicationServicesRegistration
     {

@@ -7,17 +7,17 @@ namespace BugTracker.Application.Contracts.Persistence
 {
     public interface IProjectRepository : IGenericRepository<Project>
     {
-        public Task<bool> AddProjectManagerAsync(string userId, int projectId);
-        public Task RemoveProjectManagerAsync(int projectId);
-        public Task<BTUser> GetProjectManagerAsync(int projectId);
+       // public Task<bool> AddProjectManagerAsync(string userId, int projectId);
 
 
-        public Task<List<BTUser>> GetProjectDevelopersAsync(int projectId);
-        public Task<List<BTUser>> GetProjectMembersByRoleAsync(int projectId, string role);
-
+        public Task<List<ApplicationUser>> GetProjectUsersByRoleAsync(int projectId, string role);
+        public Task<List<ApplicationUser>> GetProjectUsersAsync(int projectId);
+        public Task<List<Project>> GetUserProjectsAsync(string userId);
 
         public Task<bool> AddUserToProjectAsync(string userId, int projectId);
         public Task RemoveUserFromProjectAsync(string userId, int projectId);
+
+        public Task UpdateCompleted(bool IsComplete, int projectId);
       
     }
 }

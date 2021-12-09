@@ -3,7 +3,7 @@ using BugTracker.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace HotelListing.Core
+namespace BugTracker.Application
 {
     public static class ServiceExtensions
     {

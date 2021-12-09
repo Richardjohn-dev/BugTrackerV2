@@ -13,20 +13,23 @@ namespace CleanArchitecture.LeaveManagement.Persistence.Configurations.Entities
     {
         public void Configure(EntityTypeBuilder<TicketType> builder)
         {
-            //builder.HasData(
-            //    new LeaveType
-            //    {
-            //        Id = 1,
-            //        DefaultDays = 10,
-            //        Name = "Vacation"
-            //    },
-            //    new LeaveType
-            //    {
-            //        Id = 2,
-            //        DefaultDays = 12,
-            //        Name = "Sick"
-            //    }
-            //);
+            builder.HasData(
+                new TicketType
+                {
+                    Id = 1,
+                    Type = "Bug"
+                },
+                new TicketType
+                {
+                    Id = 2,
+                    Type = "Task"
+                },
+                new TicketType
+                {
+                    Id = 3,
+                    Type = "Improvement"
+                }
+            );
         }
     }
 }

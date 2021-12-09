@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Persistence
 {
-    public class BugTrackerDbContext : IdentityDbContext<BTUser>
+    public class BugTrackerDbContext : IdentityDbContext<ApplicationUser>
     {
         public BugTrackerDbContext(DbContextOptions<BugTrackerDbContext> options) : base(options)
         {
@@ -41,8 +41,6 @@ namespace BugTracker.Persistence
         public DbSet<TicketComment> TicketComments { get; set; }
         public DbSet<TicketAttachment> TicketAttachments { get; set; }
         public DbSet<Project> Projects { get; set; }
-        //  public DbSet<BTUser> Projects { get; set; }
-
 
 
         protected override void OnModelCreating(ModelBuilder builder)

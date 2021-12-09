@@ -20,7 +20,15 @@ namespace BugTracker.Persistence
         {
             services.AddDbContext<BugTrackerDbContext>(options =>
                options.UseSqlServer(
-                   configuration.GetConnectionString("BugTrackerConnectionString")));
+                   configuration.GetConnectionString("BugTrackerConnectionString"),
+                b => b.MigrationsAssembly(typeof(BugTrackerDbContext).Assembly.FullName)));
+
+          
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+               .AddEntityFrameworkStores<BugTrackerDbContext>()
+               .AddDefaultTokenProviders();
+
+            services.AddAuthentication();
 
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
@@ -35,26 +43,11 @@ namespace BugTracker.Persistence
             services.AddScoped<ITicketPriorityRepository, TicketPriorityRepository>();
             services.AddScoped<IProjectRepository, ProjectRepository>();
 
+
+
+            // service
             services.AddScoped<IUserRolesRepository, UserRolesRepository>();
  
-            //services.AddIdentityCore<BTUser, IdentityRole>()
-            //  .AddEntityFrameworkStores<BugTrackerDbContext>().AddDefaultTokenProviders();
-
-            ////services.AddIdentityCore<BTUser, IdentityRole>()
-            ////    .AddEntityFrameworkStores<BugTrackerDbContext>().AddDefaultTokenProviders();
-
-
-            //// services.AddIdentityCore<BTUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-            ////.AddDefaultUI()
-            ////.AddDefaultTokenProviders()
-            ////.AddEntityFrameworkStores<ApplicationDbContext>();
-
-            //// var builder = services.AddIdentityCore<BTUser>(u => u.User.RequireUniqueEmail = true);
-
-            //// builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), services);
-            //// builder.AddEntityFrameworkStores<BugTrackerDbContext>().
-            ////AddDefaultUI()
-
 
             return services;
         }

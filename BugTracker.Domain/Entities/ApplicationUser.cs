@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Domain.Entities
 {
-    public class BTUser : IdentityUser
+    public class ApplicationUser : IdentityUser
     {     
 
         [Required]

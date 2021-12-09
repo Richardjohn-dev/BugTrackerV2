@@ -4,14 +4,16 @@ using BugTracker.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BugTracker.Persistence.Migrations
 {
     [DbContext(typeof(BugTrackerDbContext))]
-    partial class BugTrackerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211209052048_updateSeedUserRoles")]
+    partial class UpdateSeedUserRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -385,44 +387,6 @@ namespace BugTracker.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TicketPriorities");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 751, DateTimeKind.Unspecified).AddTicks(3147), new TimeSpan(0, 0, 0, 0, 0)),
-                            Priority = "Trivial"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 751, DateTimeKind.Unspecified).AddTicks(3471), new TimeSpan(0, 0, 0, 0, 0)),
-                            Priority = "Low"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 751, DateTimeKind.Unspecified).AddTicks(3475), new TimeSpan(0, 0, 0, 0, 0)),
-                            Priority = "Medium"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 751, DateTimeKind.Unspecified).AddTicks(3476), new TimeSpan(0, 0, 0, 0, 0)),
-                            Priority = "High"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 751, DateTimeKind.Unspecified).AddTicks(3477), new TimeSpan(0, 0, 0, 0, 0)),
-                            Priority = "Critical"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 751, DateTimeKind.Unspecified).AddTicks(3478), new TimeSpan(0, 0, 0, 0, 0)),
-                            Priority = "Blocker"
-                        });
                 });
 
             modelBuilder.Entity("BugTracker.Domain.Entities.TicketStatus", b =>
@@ -450,44 +414,6 @@ namespace BugTracker.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TicketStatuses");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 752, DateTimeKind.Unspecified).AddTicks(5264), new TimeSpan(0, 0, 0, 0, 0)),
-                            Status = "Unassigned"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 752, DateTimeKind.Unspecified).AddTicks(5272), new TimeSpan(0, 0, 0, 0, 0)),
-                            Status = "Draft"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 752, DateTimeKind.Unspecified).AddTicks(5273), new TimeSpan(0, 0, 0, 0, 0)),
-                            Status = "In Progress"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 752, DateTimeKind.Unspecified).AddTicks(5275), new TimeSpan(0, 0, 0, 0, 0)),
-                            Status = "Resolved"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 752, DateTimeKind.Unspecified).AddTicks(5276), new TimeSpan(0, 0, 0, 0, 0)),
-                            Status = "Closed"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 9, 5, 53, 48, 752, DateTimeKind.Unspecified).AddTicks(5277), new TimeSpan(0, 0, 0, 0, 0)),
-                            Status = "Reopened"
-                        });
                 });
 
             modelBuilder.Entity("BugTracker.Domain.Entities.TicketType", b =>
@@ -515,26 +441,6 @@ namespace BugTracker.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TicketTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateCreated = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            Type = "Bug"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateCreated = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            Type = "Task"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateCreated = new DateTimeOffset(new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 0, 0, 0, 0)),
-                            Type = "Improvement"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -566,36 +472,29 @@ namespace BugTracker.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "85216005-577a-4613-aad7-817b92dde3f7",
-                            ConcurrencyStamp = "a32a22a4-d262-49cc-a671-a561b7bc2fb4",
+                            Id = "1befc09a-c60e-4afc-ada1-30269c8bf076",
+                            ConcurrencyStamp = "b4f96a49-98e0-452f-9720-41913a2691d3",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "19bb4b9c-91ae-418f-b261-0aef7256fced",
-                            ConcurrencyStamp = "dc68ca7c-15dc-4137-8d0a-47b62616701a",
+                            Id = "0f94932a-72ef-4aaf-9676-c34e2b64207d",
+                            ConcurrencyStamp = "a01cde1e-d211-4609-ae97-c6d5b9656250",
                             Name = "System Administrator",
                             NormalizedName = "SYSTEM ADMIN"
                         },
                         new
                         {
-                            Id = "4d234bff-0e0b-40ea-8759-f8d127c864a0",
-                            ConcurrencyStamp = "3342ea9b-676e-4928-aed2-6874c8e23b7d",
+                            Id = "198c03eb-5eae-43f5-82f4-0bc96ecd5186",
+                            ConcurrencyStamp = "037e1128-f827-4396-8fa7-a439571ae98f",
                             Name = "Project Administrator",
                             NormalizedName = "PROJECT ADMIN"
                         },
                         new
                         {
-                            Id = "eb519668-e3aa-4857-b03b-eb7c3e8e4f6e",
-                            ConcurrencyStamp = "1ffa3deb-d483-42ce-82f3-011b89e1cba4",
-                            Name = "Tech Lead",
-                            NormalizedName = "TECH LEAD"
-                        },
-                        new
-                        {
-                            Id = "72c15978-6348-4df3-9e56-ca3afe5f153d",
-                            ConcurrencyStamp = "d98d26b0-9c16-4d54-b99e-086e15e74c74",
+                            Id = "ee8b566c-496e-4c89-a0f4-1aa6a4ff74d6",
+                            ConcurrencyStamp = "65428b4a-fdec-4bd6-a1e3-e05341670c91",
                             Name = "Developer",
                             NormalizedName = "DEVELOPER"
                         });

@@ -46,7 +46,7 @@ namespace BugTracker.Domain.Entities
         public bool IsComplete { get; set; }
 
         // Nav
-        public virtual ICollection<BTUser> Members { get; set; } = new HashSet<BTUser>();
+        public virtual ICollection<ApplicationUser> Members { get; set; } = new HashSet<ApplicationUser>();
         public virtual ICollection<Ticket> Tickets { get; set; } = new HashSet<Ticket>();
 
 
