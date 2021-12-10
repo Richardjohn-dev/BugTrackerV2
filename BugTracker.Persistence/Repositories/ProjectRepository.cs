@@ -12,11 +12,11 @@ namespace BugTracker.Persistence.Repositories
     public class ProjectRepository : GenericRepository<Project>, IProjectRepository
     {
         private readonly BugTrackerDbContext _dbContext;
-     
-        public ProjectRepository(BugTrackerDbContext dbContext) : base(dbContext)
+        private readonly IUserRolesRepository _userService;
+        public ProjectRepository(BugTrackerDbContext dbContext, IUserRolesRepository userService) : base(dbContext)
         {
             _dbContext = dbContext;
-           
+            this._userService = userService;
         }
 
         public async Task<bool> AddUserToProjectAsync(string userId, int projectId)
@@ -52,10 +52,10 @@ namespace BugTracker.Persistence.Repositories
             var project = await _dbContext.Projects.Include(p => p.Members).FirstOrDefaultAsync(p => p.Id == projectId);
             foreach (var user in project.Members)
             {
-                //if (await _userRolesRepository.IsUserInRoleAsync(user, role))
-                //{
-                //    output.Add(user);
-                //}
+                if (await _userService.IsUserInRoleAsync(user, role))
+                {
+                    output.Add(user);
+                }
             }
             return output;
         }

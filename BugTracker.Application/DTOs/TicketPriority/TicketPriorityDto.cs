@@ -4,6 +4,6 @@ namespace BugTracker.Application.DTOs.TicketPriority
 {
     public class TicketPriorityDto : BaseDto
     {
-        public string Status { get; set; }
+        public string Priority { get; set; }
     }
 }
