@@ -26,6 +26,9 @@ namespace BugTracker.Application.Features.Tickets.Handlers.Commands
         public async Task<int> Handle(CreateTicketCommand request, CancellationToken cancellationToken)
         {
             var ticket = _mapper.Map<Ticket>(request.CreateTicketDto);
+            ticket.AssigneeUser = null;
+            ticket.ReporterUser = null;
+            // add validation for this to ensure assigned users are correct
             ticket = await _ticketRepository.AddAsync(ticket);
             return ticket.Id;
         }

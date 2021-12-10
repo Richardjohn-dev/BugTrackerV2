@@ -22,17 +22,17 @@ namespace HotelListingAPI.Configurations.Entities
                  new IdentityRole
                  {
                      Name = "System Administrator",
-                     NormalizedName = "SYSTEM ADMIN"
+                     NormalizedName = "SYSTEMADMIN"
                  },
                  new IdentityRole
                  {
                      Name = "Project Administrator",
-                     NormalizedName = "PROJECT ADMIN"
+                     NormalizedName = "PROJECTADMIN"
                  },
                  new IdentityRole
                  {
                      Name = "Tech Lead",
-                     NormalizedName = "TECH LEAD"
+                     NormalizedName = "TECHLEAD"
                  },
                  new IdentityRole
                  {

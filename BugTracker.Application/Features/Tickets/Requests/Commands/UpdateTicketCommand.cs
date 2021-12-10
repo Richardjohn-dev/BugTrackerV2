@@ -10,6 +10,8 @@ namespace BugTracker.Application.Features.Tickets.Requests.Commands
 {
     public class UpdateTicketCommand : IRequest<Unit>
     {
-        public TicketDto TicketDto { get; set; }
+        public int Id { get; set; }
+        public UpdateTicketDto UpdateTicketDto { get; set; }
+        public UpdateTicketClosedDto UpdateTicketClosedDto { get; set; }
     }
 }

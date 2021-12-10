@@ -4,14 +4,16 @@ using BugTracker.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BugTracker.Persistence.Migrations
 {
     [DbContext(typeof(BugTrackerDbContext))]
-    partial class BugTrackerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211210084154_SeedStatus2")]
+    partial class SeedStatus2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -393,37 +395,37 @@ namespace BugTracker.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 589, DateTimeKind.Unspecified).AddTicks(7166), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 691, DateTimeKind.Unspecified).AddTicks(4875), new TimeSpan(0, 0, 0, 0, 0)),
                             Priority = "Trivial"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 589, DateTimeKind.Unspecified).AddTicks(7540), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 691, DateTimeKind.Unspecified).AddTicks(5319), new TimeSpan(0, 0, 0, 0, 0)),
                             Priority = "Low"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 589, DateTimeKind.Unspecified).AddTicks(7545), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 691, DateTimeKind.Unspecified).AddTicks(5326), new TimeSpan(0, 0, 0, 0, 0)),
                             Priority = "Medium"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 589, DateTimeKind.Unspecified).AddTicks(7547), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 691, DateTimeKind.Unspecified).AddTicks(5327), new TimeSpan(0, 0, 0, 0, 0)),
                             Priority = "High"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 589, DateTimeKind.Unspecified).AddTicks(7550), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 691, DateTimeKind.Unspecified).AddTicks(5329), new TimeSpan(0, 0, 0, 0, 0)),
                             Priority = "Critical"
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 589, DateTimeKind.Unspecified).AddTicks(7553), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 691, DateTimeKind.Unspecified).AddTicks(5331), new TimeSpan(0, 0, 0, 0, 0)),
                             Priority = "Blocker"
                         });
                 });
@@ -458,37 +460,37 @@ namespace BugTracker.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 591, DateTimeKind.Unspecified).AddTicks(134), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 692, DateTimeKind.Unspecified).AddTicks(8974), new TimeSpan(0, 0, 0, 0, 0)),
                             Status = "Unassigned"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 591, DateTimeKind.Unspecified).AddTicks(141), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 692, DateTimeKind.Unspecified).AddTicks(8987), new TimeSpan(0, 0, 0, 0, 0)),
                             Status = "Draft"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 591, DateTimeKind.Unspecified).AddTicks(143), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 692, DateTimeKind.Unspecified).AddTicks(8988), new TimeSpan(0, 0, 0, 0, 0)),
                             Status = "In Progress"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 591, DateTimeKind.Unspecified).AddTicks(144), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 692, DateTimeKind.Unspecified).AddTicks(8990), new TimeSpan(0, 0, 0, 0, 0)),
                             Status = "Resolved"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 591, DateTimeKind.Unspecified).AddTicks(145), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 692, DateTimeKind.Unspecified).AddTicks(8991), new TimeSpan(0, 0, 0, 0, 0)),
                             Status = "Closed"
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 51, 59, 591, DateTimeKind.Unspecified).AddTicks(146), new TimeSpan(0, 0, 0, 0, 0)),
+                            DateCreated = new DateTimeOffset(new DateTime(2021, 12, 10, 8, 41, 53, 692, DateTimeKind.Unspecified).AddTicks(8992), new TimeSpan(0, 0, 0, 0, 0)),
                             Status = "Reopened"
                         });
                 });
@@ -569,36 +571,36 @@ namespace BugTracker.Persistence.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4c7b3bdc-745b-488c-a36a-5b494c60ba89",
-                            ConcurrencyStamp = "b9da7138-1392-44f6-b710-3bc00baeb2f6",
+                            Id = "1ef661ea-1e2e-49ec-b6ec-c37fc1abf3d7",
+                            ConcurrencyStamp = "b8eb6da6-b15d-4208-8edc-b76f0470090d",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "22cf1fd3-77f3-41cb-b666-260fe8c0226c",
-                            ConcurrencyStamp = "8ccae9f6-e4be-433a-8ccf-ba04e684df46",
+                            Id = "4f56c58d-1913-4852-a500-afd6cdaec8e8",
+                            ConcurrencyStamp = "ef6c5505-71d5-4113-b7cb-44bb8c552f41",
                             Name = "System Administrator",
                             NormalizedName = "SYSTEMADMIN"
                         },
                         new
                         {
-                            Id = "b4bd608a-4f5f-4854-8e1f-ebb25ed54722",
-                            ConcurrencyStamp = "948427de-09d4-48df-aaab-af98122a0dbf",
+                            Id = "2825ce85-5550-4718-8dc9-d425c4309f5b",
+                            ConcurrencyStamp = "3757cc0d-30de-487e-a96a-1e9ad0288858",
                             Name = "Project Administrator",
                             NormalizedName = "PROJECTADMIN"
                         },
                         new
                         {
-                            Id = "0cb7a33c-b4f5-495c-9935-97fa59528ff2",
-                            ConcurrencyStamp = "d0800f94-47dc-44d5-8d9c-3211d3c0a443",
+                            Id = "78a31e5c-163e-440b-8feb-a05b32c4207f",
+                            ConcurrencyStamp = "df68696f-d083-42ce-9161-5859533a3856",
                             Name = "Tech Lead",
                             NormalizedName = "TECHLEAD"
                         },
                         new
                         {
-                            Id = "0997e05f-559d-47f9-a297-0811b3a0a5c0",
-                            ConcurrencyStamp = "40da34f1-6054-48d5-b0c0-f62fdbcfcaac",
+                            Id = "27683f93-646d-4a7c-83b9-5a3ffa97d88f",
+                            ConcurrencyStamp = "67f2fe1d-b448-451c-84e5-3caa93536797",
                             Name = "Developer",
                             NormalizedName = "DEVELOPER"
                         });

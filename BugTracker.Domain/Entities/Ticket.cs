@@ -34,14 +34,16 @@ namespace BugTracker.Domain.Entities
         [DisplayName("Status")]
         public int TicketStatusId { get; set; }
 
-        [DisplayName("Assigned To")]
-        public string AssigneeUserId { get; set; }
+        //[DisplayName("Assigned To")]
+        //public string AssigneeUserId { get; set; }
 
-        [DisplayName("Owned By")]
-        public string OwnerUserId { get; set; }
-     
+        //[DisplayName("Owned By")]
+        //public string ReporterUserId { get; set; }
+
+        public bool? Closed { get; set; }
+
         // nav
-        public virtual ApplicationUser OwnerUser { get; set; }
+        public virtual ApplicationUser ReporterUser { get; set; }
         public virtual ApplicationUser AssigneeUser { get; set; }
         public virtual TicketStatus TicketStatus { get; set; }
         public virtual TicketPriority TicketPriority { get; set; }

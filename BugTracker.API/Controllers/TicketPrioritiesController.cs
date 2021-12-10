@@ -14,11 +14,11 @@ namespace BugTracker.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TicketPriorityController : ControllerBase
+    public class TicketPrioritiesController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public TicketPriorityController(IMediator mediator)
+        public TicketPrioritiesController(IMediator mediator)
         {
             _mediator = mediator;
         }

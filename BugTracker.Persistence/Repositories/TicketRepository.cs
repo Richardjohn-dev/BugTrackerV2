@@ -32,11 +32,18 @@ namespace BugTracker.Persistence.Repositories
             }
         }
 
+        public async Task ChangeClosedStatus(Ticket ticket, bool? Closed)
+        {
+            ticket.Closed = Closed;
+            _dbContext.Entry(ticket).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
+        }
+
         public async Task<List<Ticket>> GetProjectTicketsWithDetails(int projectId)
         {
             var tickets = await _dbContext.Tickets                
                  .Include(p => p.AssigneeUser)
-                 .Include(p => p.OwnerUser)
+                 .Include(p => p.ReporterUser)
                  .Include(p => p.TicketStatus)
                  .Include(p => p.TicketPriority)
                  .Include(p => p.TicketType)
@@ -54,7 +61,7 @@ namespace BugTracker.Persistence.Repositories
         {
             var tickets = await _dbContext.Tickets
                   .Include(p => p.AssigneeUser)
-                  .Include(p => p.OwnerUser)
+                  .Include(p => p.ReporterUser)
                   .Include(p => p.TicketStatus)
                   .Include(p => p.TicketPriority)
                   .Include(p => p.TicketType)
@@ -62,7 +69,7 @@ namespace BugTracker.Persistence.Repositories
                   .Include(p => p.TicketComments)
                   .Include(p => p.TicketAttachments)
                   .Include(p => p.TicketComments)
-                  .Where(p => p.OwnerUser.Id == userId)
+                  .Where(p => p.AssigneeUser.Id == userId)
                   .ToListAsync();
 
             return tickets;

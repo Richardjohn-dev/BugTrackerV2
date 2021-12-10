@@ -1,8 +1,13 @@
 ﻿using BugTracker.Application.DTOs.Common;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BugTracker.Application.DTOs.Ticket
 {
-    public class TicketDto : BaseDto
+    public class UpdateTicketDto : BaseDto
     {
         public string Title { get; set; }
         public string Description { get; set; }
@@ -11,9 +16,7 @@ namespace BugTracker.Application.DTOs.Ticket
         public int TicketPriorityId { get; set; }
         public int TicketStatusId { get; set; }
 
-        // this should have all the models etc for 'get ticket with details'
-
         public string AssigneeUserId { get; set; }
-        public string ReporterUserId { get; set; }
+       
     }
 }

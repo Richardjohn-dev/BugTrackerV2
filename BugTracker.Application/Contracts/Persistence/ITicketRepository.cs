@@ -11,6 +11,8 @@ namespace BugTracker.Application.Contracts.Persistence
         public Task<List<Ticket>> GetUserTicketsWithDetailsAsync(string userId);
         public Task<List<Ticket>> GetProjectTicketsWithDetails(int projectId);
 
+        Task ChangeClosedStatus(Ticket ticket, bool? Closed);
+
         //public Task<List<Ticket>> GetProjectTicketsByStatusAsync(string statusName, int companyId, int projectId);
         //public Task<List<Ticket>> GetProjectTicketsByPriorityAsync(string priorityName, int companyId, int projectId);
     }
