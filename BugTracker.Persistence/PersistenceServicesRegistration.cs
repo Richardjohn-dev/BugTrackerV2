@@ -23,7 +23,7 @@ namespace BugTracker.Persistence
                    configuration.GetConnectionString("BugTrackerConnectionString"),
                 b => b.MigrationsAssembly(typeof(BugTrackerDbContext).Assembly.FullName)));
 
-          
+
             services.AddIdentity<ApplicationUser, IdentityRole>()
                .AddEntityFrameworkStores<BugTrackerDbContext>()
                .AddDefaultTokenProviders();
@@ -41,12 +41,13 @@ namespace BugTracker.Persistence
             services.AddScoped<ITicketCommentRepository, TicketCommentRepository>();
             services.AddScoped<ITicketHistoryRepository, TicketHistoryRepository>();
             services.AddScoped<ITicketPriorityRepository, TicketPriorityRepository>();
+           
             services.AddScoped<IProjectRepository, ProjectRepository>();
 
 
 
             // service
-            services.AddScoped<IUserRolesRepository, UserRolesRepository>();
+           services.AddTransient<IUserRolesRepository, UserRolesRepository>();
  
 
             return services;

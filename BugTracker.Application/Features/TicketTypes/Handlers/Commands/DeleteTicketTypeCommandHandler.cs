@@ -12,15 +12,15 @@ namespace BugTracker.Application.Features.TicketTypes.Handlers.Commands
 {
     public class DeleteTicketTypeCommandHandler : IRequestHandler<DeleteTicketTypeCommand>
     {
-        private readonly ITicketTypeRepository _TicketTypeRepository;
+        private readonly ITicketTypeRepository _ticketTypeRepository;
         public DeleteTicketTypeCommandHandler(ITicketTypeRepository TicketTypeRepository)
         {
-            _TicketTypeRepository = TicketTypeRepository;
+            _ticketTypeRepository = TicketTypeRepository;
         }
         public async Task<Unit> Handle(DeleteTicketTypeCommand request, CancellationToken cancellationToken)
         {
-            var TicketType = await _TicketTypeRepository.GetAsync(request.Id);
-            await _TicketTypeRepository.DeleteAsync(TicketType);
+            var TicketType = await _ticketTypeRepository.GetAsync(request.Id);
+            await _ticketTypeRepository.DeleteAsync(TicketType);
             return Unit.Value;
         }
     }

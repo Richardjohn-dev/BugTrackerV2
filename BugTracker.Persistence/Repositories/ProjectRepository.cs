@@ -12,15 +12,14 @@ namespace BugTracker.Persistence.Repositories
     public class ProjectRepository : GenericRepository<Project>, IProjectRepository
     {
         private readonly BugTrackerDbContext _dbContext;
-        private readonly UserRolesRepository _userRolesRepository;
-
-        public ProjectRepository(BugTrackerDbContext dbContext, UserRolesRepository userRolesRepository) : base(dbContext)
+     
+        public ProjectRepository(BugTrackerDbContext dbContext) : base(dbContext)
         {
             _dbContext = dbContext;
-            _userRolesRepository = userRolesRepository;
+           
         }
-    
-       public async Task<bool> AddUserToProjectAsync(string userId, int projectId)
+
+        public async Task<bool> AddUserToProjectAsync(string userId, int projectId)
         {
             try
             {
@@ -34,13 +33,13 @@ namespace BugTracker.Persistence.Repositories
                 }
             }
             catch (Exception)
-            {               
-               
+            {
+
             }
             return false;
         }
 
-   
+
 
         public async Task<List<ApplicationUser>> GetProjectUsersAsync(int projectId)
         {
@@ -49,14 +48,14 @@ namespace BugTracker.Persistence.Repositories
 
         public async Task<List<ApplicationUser>> GetProjectUsersByRoleAsync(int projectId, string role)
         {
-           List<ApplicationUser> output = new();
-           var project = await _dbContext.Projects.Include(p=>p.Members).FirstOrDefaultAsync(p => p.Id == projectId);
+            List<ApplicationUser> output = new();
+            var project = await _dbContext.Projects.Include(p => p.Members).FirstOrDefaultAsync(p => p.Id == projectId);
             foreach (var user in project.Members)
             {
-                if (await _userRolesRepository.IsUserInRoleAsync(user, role))
-                {
-                    output.Add(user);
-                }
+                //if (await _userRolesRepository.IsUserInRoleAsync(user, role))
+                //{
+                //    output.Add(user);
+                //}
             }
             return output;
         }
@@ -65,9 +64,9 @@ namespace BugTracker.Persistence.Repositories
         {
             return (await _dbContext.Users.Include(p => p.Projects).FirstOrDefaultAsync(u => u.Id == userId)).Projects.ToList();
         }
-              
 
-       public async Task RemoveUserFromProjectAsync(string userId, int projectId)
+
+        public async Task RemoveUserFromProjectAsync(string userId, int projectId)
         {
             try
             {
@@ -81,7 +80,7 @@ namespace BugTracker.Persistence.Repositories
 
                 throw;
             }
-          
+
         }
 
 

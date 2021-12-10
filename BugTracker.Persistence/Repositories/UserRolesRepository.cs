@@ -16,7 +16,7 @@ namespace BugTracker.Persistence.Repositories
         private readonly UserManager<ApplicationUser> _userManager;
 
         public UserRolesRepository(
-            BugTrackerDbContext dbContext, 
+            BugTrackerDbContext dbContext,
             RoleManager<IdentityRole> roleManager,
             UserManager<ApplicationUser> userManager)
         {
@@ -26,7 +26,7 @@ namespace BugTracker.Persistence.Repositories
         }
         public async Task<bool> AddUserToRoleAsync(ApplicationUser user, string role)
             => (await _userManager.AddToRoleAsync(user, role)).Succeeded;
-      
+
         public async Task<string> GetRoleNameByIdAsync(string roleId)
         {
             var role = _dbContext.Roles.Find(roleId);
@@ -34,14 +34,14 @@ namespace BugTracker.Persistence.Repositories
             return result;
         }
 
-        public async Task<IEnumerable<string>> GetUserRolesAsync(ApplicationUser user) 
+        public async Task<IEnumerable<string>> GetUserRolesAsync(ApplicationUser user)
             => await _userManager.GetRolesAsync(user);
 
-        public async Task<bool> IsUserInRoleAsync(ApplicationUser user, string role) 
+        public async Task<bool> IsUserInRoleAsync(ApplicationUser user, string role)
             => await _userManager.IsInRoleAsync(user, role);
-       
 
-        public async Task<bool> RemoveUserFromRoleAsync(ApplicationUser user, string role) 
+
+        public async Task<bool> RemoveUserFromRoleAsync(ApplicationUser user, string role)
             => (await _userManager.RemoveFromRoleAsync(user, role)).Succeeded;
 
         public async Task<bool> RemoveUserFromRolesAsync(ApplicationUser user, IEnumerable<string> roles)
