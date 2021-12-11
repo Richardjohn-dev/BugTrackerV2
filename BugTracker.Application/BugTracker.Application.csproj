@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\Project\Validators\" />
     <Folder Include="DTOs\Ticket\Validators\" />
     <Folder Include="Features\TicketComments\Handlers\Commands\" />
     <Folder Include="Features\TicketComments\Handlers\Queries\" />

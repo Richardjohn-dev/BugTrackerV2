@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Application.DTOs.Project
 {
-    public class CreateProjectDto : IProjectDto
+    public interface IProjectDto
     {
         public string Name { get; set; }
         public string Description { get; set; }
-
     }
 }
