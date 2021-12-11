@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using BugTracker.Application.DTOs.TicketType.Validators;
+using BugTracker.Application.Exceptions;
 
 namespace BugTracker.Application.Features.TicketTypes.Handlers.Commands
 {
@@ -25,6 +27,11 @@ namespace BugTracker.Application.Features.TicketTypes.Handlers.Commands
 
         public async Task<Unit> Handle(UpdateTicketTypeCommand request, CancellationToken cancellationToken)
         {
+            var validator = new TicketTypeDtoValidator();
+            var validationResults = await validator.ValidateAsync(request.TicketTypeDto, cancellationToken);
+            if (validationResults.IsValid == false)
+                throw new ValidationException(validationResults);
+
             var ticketType = await _ticketTypeRepository.GetAsync(request.TicketTypeDto.Id);
             _mapper.Map(request.TicketTypeDto, ticketType);
             await _ticketTypeRepository.UpdateAsync(ticketType);

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.5" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
   </ItemGroup>
 
@@ -18,6 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="DTOs\Project\Validators\" />
+    <Folder Include="DTOs\TicketComment\Validators\" />
+    <Folder Include="DTOs\TicketPriority\Validators\" />
+    <Folder Include="DTOs\TicketStatus\Validators\" />
+    <Folder Include="DTOs\Ticket\Validators\" />
     <Folder Include="Features\TicketComments\Handlers\Commands\" />
     <Folder Include="Features\TicketComments\Handlers\Queries\" />
     <Folder Include="Features\TicketComments\Requests\Commands\" />

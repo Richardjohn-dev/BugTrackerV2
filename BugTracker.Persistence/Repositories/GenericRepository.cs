@@ -1,6 +1,9 @@
 ﻿using BugTracker.Application.Contracts.Persistence;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace BugTracker.Persistence.Repositories
@@ -8,10 +11,11 @@ namespace BugTracker.Persistence.Repositories
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly BugTrackerDbContext _dbContext;
-
+        private readonly DbSet<T> _dbSet;
         public GenericRepository(BugTrackerDbContext dbContext)
         {
             _dbContext = dbContext;
+            _dbSet = _dbContext.Set<T>();
         }
         public async Task<T> AddAsync(T entity)
         {
@@ -42,10 +46,32 @@ namespace BugTracker.Persistence.Repositories
             return await _dbContext.Set<T>().FindAsync(id);
         }
 
+     
+       // public async Task<bool> IsUniqueAsync(T entity, string tProperty, string uniqueString)
+       // {
+       ////   var entity = await _dbContext.Set<T>().FindAsync(x => x.tProperty == uniqueString);
+       // }
+
+        public async Task<T> Get(Expression<Func<T, bool>> expression, List<string> includes = null)
+        {
+            // includes parameter - configure the lazy loading. 
+            // if we have a hotel, include the country also for example
+            IQueryable<T> query = _dbSet;
+            if (includes != null)
+            {
+                foreach (var includeProperty in includes)
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+            return await query.AsNoTracking().FirstOrDefaultAsync(expression); // can be a lambda expression as a parameter
+        }
+
         public async Task UpdateAsync(T entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified; // notify ef core change tracker
             await _dbContext.SaveChangesAsync();
         }
+               
     }
 }
