@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BugTracker.Application.DTOs.TicketType;
+using BugTracker.Application.DTOs.TicketStatus;
 using BugTracker.Application.Features.TicketStatuses.Requests.Queries;
 using BugTracker.Application.Contracts.Persistence;
 using MediatR;

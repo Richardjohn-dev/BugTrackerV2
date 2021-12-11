@@ -4,6 +4,7 @@ using BugTracker.Application.DTOs.Ticket;
 using BugTracker.Application.DTOs.TicketComment;
 using BugTracker.Application.DTOs.TicketPriority;
 using BugTracker.Application.DTOs.TicketType;
+using BugTracker.Application.DTOs.TicketStatus;
 using BugTracker.Domain.Entities;
 
 namespace BugTracker.Application.Profiles

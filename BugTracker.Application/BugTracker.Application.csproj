@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -20,9 +20,6 @@
 
   <ItemGroup>
     <Folder Include="DTOs\Project\Validators\" />
-    <Folder Include="DTOs\TicketComment\Validators\" />
-    <Folder Include="DTOs\TicketPriority\Validators\" />
-    <Folder Include="DTOs\TicketStatus\Validators\" />
     <Folder Include="DTOs\Ticket\Validators\" />
     <Folder Include="Features\TicketComments\Handlers\Commands\" />
     <Folder Include="Features\TicketComments\Handlers\Queries\" />

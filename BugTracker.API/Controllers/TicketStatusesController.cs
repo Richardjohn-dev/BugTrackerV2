@@ -1,4 +1,4 @@
-﻿using BugTracker.Application.DTOs.TicketType;
+﻿using BugTracker.Application.DTOs.TicketStatus;
 using BugTracker.Application.Features.TicketStatuses.Requests.Commands;
 using BugTracker.Application.Features.TicketStatuses.Requests.Queries;
 using MediatR;

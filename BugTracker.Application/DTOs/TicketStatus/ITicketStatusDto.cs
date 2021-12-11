@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Application.DTOs.TicketStatus
 {
-    public class CreateTicketStatusDto : ITicketStatusDto
+    public interface ITicketStatusDto
     {
         public string Status { get; set; }
     }

@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Application.DTOs.TicketPriority
 {
-    public class CreateTicketPriorityDto : ITicketPriorityDto
-    {
+    public interface ITicketPriorityDto    {
         public string Priority { get; set; }
     }
 }

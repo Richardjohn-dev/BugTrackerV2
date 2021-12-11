@@ -1,8 +1,8 @@
 ﻿using BugTracker.Application.DTOs.Common;
 
-namespace BugTracker.Application.DTOs.TicketType
+namespace BugTracker.Application.DTOs.TicketStatus
 {
-    public class TicketStatusDto : BaseDto
+    public class TicketStatusDto : BaseDto, ITicketStatusDto
     {
         public string Status { get; set; }
     }
