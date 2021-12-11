@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BugTracker.Application.DTOs.Ticket
 {
-    public class CreateTicketDto
+    public class CreateTicketDto : ITicketDto
     {
         public string Title { get; set; }
         public string Description { get; set; }

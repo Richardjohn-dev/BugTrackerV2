@@ -24,7 +24,8 @@ namespace BugTracker.Application.DTOs.Project.Validators
               .MaximumLength(150).WithMessage("{PropertyName} most not exceed 150 characters.");
 
             // project admin
-            // company required
+            // company id
+
         }
     }
 }

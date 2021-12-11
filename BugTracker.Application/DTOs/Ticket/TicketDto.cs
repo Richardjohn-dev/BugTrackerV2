@@ -2,7 +2,7 @@
 
 namespace BugTracker.Application.DTOs.Ticket
 {
-    public class TicketDto : BaseDto
+    public class TicketDto : BaseDto, ITicketDto
     {
         public string Title { get; set; }
         public string Description { get; set; }
