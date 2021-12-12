@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using BugTracker.Application.DTOs.TicketPriority.Validators;
+using BugTracker.Application.Exceptions;
 
 namespace BugTracker.Application.Features.TicketPriorities.Handlers.Commands
 {
@@ -23,6 +25,11 @@ namespace BugTracker.Application.Features.TicketPriorities.Handlers.Commands
         }
         public async Task<Unit> Handle(UpdateTicketPriorityCommand request, CancellationToken cancellationToken)
         {
+            var validator = new TicketPriorityDtoValidator();
+            var validationResults = await validator.ValidateAsync(request.TicketPriorityDto, cancellationToken);
+            if (validationResults.IsValid == false)
+                throw new ValidationException(validationResults);
+
             var priority = await _ticketPriorityRepository.GetAsync(request.TicketPriorityDto.Id);
             priority = _mapper.Map(request.TicketPriorityDto, priority);
             await _ticketPriorityRepository.UpdateAsync(priority);

@@ -41,9 +41,9 @@ namespace BugTracker.API.Controllers
 
         // POST api/<ProjectsController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateProjectDto projectDto)
+        public async Task<ActionResult> Post([FromBody] CreateProjectDto createProjectDto)
         {
-            var command = new CreateProjectCommand { ProjectDto = projectDto };
+            var command = new CreateProjectCommand { CreateProjectDto = createProjectDto };
             var response = await _mediator.Send(command);
             return Ok(response);
         }

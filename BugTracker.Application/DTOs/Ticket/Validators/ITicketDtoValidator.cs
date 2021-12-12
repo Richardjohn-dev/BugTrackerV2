@@ -17,11 +17,11 @@ namespace BugTracker.Application.DTOs.Ticket.Validators
                .MinimumLength(5).WithMessage("{PropertyName} must be at least 5 characters.")
                .MaximumLength(100).WithMessage("{PropertyName} most not exceed 100 characters.");
 
-            RuleFor(n => n.Title)
+            RuleFor(n => n.Description)
               .NotEmpty().WithMessage("{PropertyName} is required")
               .NotNull()
               .MinimumLength(5).WithMessage("{PropertyName} must be at least 5 characters.")
-              .MaximumLength(300).WithMessage("{PropertyName} most not exceed 100 characters.");
+              .MaximumLength(300).WithMessage("{PropertyName} most not exceed 300 characters.");
 
             //project id
             RuleFor(p => p.ProjectId).NotNull().WithMessage("{PropertyName} must be present");

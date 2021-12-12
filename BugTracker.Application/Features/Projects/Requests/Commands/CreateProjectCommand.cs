@@ -6,6 +6,6 @@ namespace BugTracker.Application.Features.Projects.Requests.Commands
 {
     public class CreateProjectCommand : IRequest<int>
     {
-        public CreateProjectDto ProjectDto { get; set; }
+        public CreateProjectDto CreateProjectDto { get; set; }
     }
 }

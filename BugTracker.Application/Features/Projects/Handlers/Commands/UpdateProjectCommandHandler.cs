@@ -4,6 +4,8 @@ using BugTracker.Application.Contracts.Persistence;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
+using BugTracker.Application.DTOs.Project.Validators;
+using BugTracker.Application.Exceptions;
 
 namespace BugTracker.Application.Features.Projects.Handlers.Commands
 {
@@ -19,6 +21,11 @@ namespace BugTracker.Application.Features.Projects.Handlers.Commands
         }
         public async Task<Unit> Handle(UpdateProjectCommand request, CancellationToken cancellationToken)
         {
+            var validator = new ProjectDtoValidator();
+            var validationResults = await validator.ValidateAsync(request.ProjectDto, cancellationToken);
+            if (validationResults.IsValid == false)
+                throw new ValidationException(validationResults);
+
             var project = await _projectRepository.GetAsync(request.ProjectDto.Id);
             _mapper.Map(request.ProjectDto, project);
             await _projectRepository.UpdateAsync(project);

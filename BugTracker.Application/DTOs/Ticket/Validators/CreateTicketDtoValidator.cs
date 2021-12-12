@@ -10,13 +10,17 @@ namespace BugTracker.Application.DTOs.Ticket.Validators
 {
     public class CreateTicketDtoValidator : AbstractValidator<CreateTicketDto>
     {
-        private readonly ITicketRepository _TicketRepository;
+        private readonly ITicketRepository _ticketRepository;
 
-        public CreateTicketDtoValidator(ITicketRepository TicketRepository)
+        public CreateTicketDtoValidator(ITicketRepository ticketRepository)
         {
-            _TicketRepository = TicketRepository;
+            _ticketRepository = ticketRepository;
 
             Include(new ITicketDtoValidator());
+            // what are rules for creating a ticket?
+
+            // depends who is calling this API really.. if its internal we will know all ID's etc are valid.
+
             //RuleFor(p => p.Title)
             //    .MustAsync(async (type, token) =>
             //    {
