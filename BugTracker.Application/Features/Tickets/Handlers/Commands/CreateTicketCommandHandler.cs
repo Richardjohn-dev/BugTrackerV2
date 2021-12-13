@@ -9,17 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using BugTracker.Application.Contracts.Infrastructure;
+using BugTracker.Application.Models;
 
 namespace BugTracker.Application.Features.Tickets.Handlers.Commands
 {
     public class CreateTicketCommandHandler : IRequestHandler<CreateTicketCommand, int>
     {
         private readonly ITicketRepository _ticketRepository;
+        private readonly IEmailSender _emailSender;
         private readonly IMapper _mapper;
 
-        public CreateTicketCommandHandler(ITicketRepository ticketRepository, IMapper mapper)
+        public CreateTicketCommandHandler(ITicketRepository ticketRepository, IEmailSender emailSender, IMapper mapper)
         {
             _ticketRepository = ticketRepository;
+            _emailSender = emailSender;
             _mapper = mapper;
         }   
 
@@ -30,7 +34,29 @@ namespace BugTracker.Application.Features.Tickets.Handlers.Commands
             ticket.ReporterUser = null;
             // add validation for this to ensure assigned users are correct
             ticket = await _ticketRepository.AddAsync(ticket);
+
+            // send an email sample
+            var email = new Email
+            {                
+                To = "assignee@org.com",
+                Body = TicketCreatedEmailBody(ticket),
+                Subject = "New Ticket Created"
+            };
+            try
+            {
+                await _emailSender.SendEmail(email);
+            }
+            catch (Exception)
+            {
+                //// Log or handle error, but don't throw...
+            }
+
             return ticket.Id;
+        }
+
+        private static string TicketCreatedEmailBody(Ticket ticket)
+        {
+            return $"Ticket Title: {ticket.Title} Desc: {ticket.Description} ";
         }
     }
 }

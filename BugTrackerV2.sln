@@ -9,17 +9,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E0F0A493-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1B5E415F-0347-4CD9-AA9A-8C559F095514}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Application", "BugTracker.Application\BugTracker.Application.csproj", "{4F88CAAA-2D4A-4E4C-83EF-881E4A1BF808}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Application", "BugTracker.Application\BugTracker.Application.csproj", "{4F88CAAA-2D4A-4E4C-83EF-881E4A1BF808}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Domain", "BugTracker.Domain\BugTracker.Domain.csproj", "{93F69ACC-1D8F-445F-94B5-6074B15D7CE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Domain", "BugTracker.Domain\BugTracker.Domain.csproj", "{93F69ACC-1D8F-445F-94B5-6074B15D7CE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Infrastructure", "BugTracker.Infrastructure\BugTracker.Infrastructure.csproj", "{017F7F5C-5AD2-41A2-A2D1-460C8E748D9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Infrastructure", "BugTracker.Infrastructure\BugTracker.Infrastructure.csproj", "{017F7F5C-5AD2-41A2-A2D1-460C8E748D9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Persistence", "BugTracker.Persistence\BugTracker.Persistence.csproj", "{728AEE2B-841B-4FC0-B565-7BF876F3F238}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.Persistence", "BugTracker.Persistence\BugTracker.Persistence.csproj", "{728AEE2B-841B-4FC0-B565-7BF876F3F238}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{08D2CCAE-CCC3-4F1C-AFCD-120F4B4A6416}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.API", "BugTracker.API\BugTracker.API.csproj", "{80BB7A60-B825-4697-9DD6-7611AEAE5EAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.API", "BugTracker.API\BugTracker.API.csproj", "{80BB7A60-B825-4697-9DD6-7611AEAE5EAD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4734E26C-7D6F-449E-B14B-2844F24372FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

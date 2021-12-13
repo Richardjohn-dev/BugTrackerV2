@@ -1,6 +1,6 @@
-using BugTracker.Domain.Entities;
 using BugTracker.Persistence;
 using BugTracker.Application;
+using BugTracker.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,12 +32,13 @@ namespace BugTracker.API
         {
                    
             services.ConfigureApplicationServices();
+            services.ConfigureInfrastructureServices(Configuration);
             services.ConfigurePersistenceServices(Configuration);           
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Bug Tracker", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Clean Architecture Ticket Tracker", Version = "v1" });
             });
 
             services.AddCors(o =>
