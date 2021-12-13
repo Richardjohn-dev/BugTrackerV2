@@ -33,8 +33,8 @@ namespace BugTracker.API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<TicketDto>> Get(int id)
         {
-            var Ticket = await _mediator.Send(new GetTicketRequest { Id = id });
-            return Ok(Ticket);
+            var result = await _mediator.Send(new GetTicketRequest { Id = id });
+            return result != null ? (ActionResult) Ok(result) : NotFound();
         }
 
         // POST api/<TicketsController>

@@ -20,9 +20,8 @@ namespace BugTracker.Application.DTOs.TicketStatus.Validators
             RuleFor(p => p.Status)
                 .MustAsync(async (Status, token) =>
                 {
-                    var StatusExists = await _ticketStatusRepository.Get(t=> t.Status == Status);
-                    if (StatusExists == null) return true;
-                    return false;
+                    var statusExists = await _ticketStatusRepository.Get(t=> t.Status == Status);
+                    return statusExists == null ? true : false;
                 })
                 .WithMessage("{PropertyName} already exists.");
         }

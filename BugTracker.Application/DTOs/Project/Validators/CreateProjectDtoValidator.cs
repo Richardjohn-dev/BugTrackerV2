@@ -21,9 +21,8 @@ namespace BugTracker.Application.DTOs.Project.Validators
             RuleFor(p => p.Name)
                 .MustAsync(async (name, token) =>
                 {
-                    var PriorityExists = await _projectRepository.Get(t=> t.Name == name);
-                    if (PriorityExists == null) return true;
-                    return false;
+                    var nameExists = await _projectRepository.Get(t=> t.Name == name);
+                    return nameExists == null ? true : false;
                 })
                 .WithMessage("{PropertyName} already exists.");
         }

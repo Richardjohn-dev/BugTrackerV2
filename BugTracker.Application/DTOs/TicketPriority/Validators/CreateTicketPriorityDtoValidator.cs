@@ -20,9 +20,9 @@ namespace BugTracker.Application.DTOs.TicketPriority.Validators
             RuleFor(p => p.Priority)
                 .MustAsync(async (Priority, token) =>
                 {
-                    var PriorityExists = await _ticketPriorityRepository.Get(t=> t.Priority == Priority);
-                    if (PriorityExists == null) return true;
-                    return false;
+                    var priorityExists = await _ticketPriorityRepository.Get(t=> t.Priority == Priority);
+                    return priorityExists == null ? true : false;                  
+
                 })
                 .WithMessage("{PropertyName} already exists.");
         }

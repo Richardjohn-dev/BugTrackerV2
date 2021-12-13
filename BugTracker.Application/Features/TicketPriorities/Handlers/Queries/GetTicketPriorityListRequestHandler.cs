@@ -26,7 +26,7 @@ namespace BugTracker.Application.Features.TicketPriorities.Handlers.Queries
         public async Task<List<TicketPriorityDto>> Handle(GetTicketPriorityListRequest request, CancellationToken cancellationToken)
         {
             var priorities = await _ticketPriorityRepository.GetAllAsync();
-            return _mapper.Map<List<TicketPriorityDto>>(priorities);
+            return priorities == null ? null : _mapper.Map<List<TicketPriorityDto>>(priorities);
         }
     }
 }

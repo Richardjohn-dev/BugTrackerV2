@@ -26,7 +26,7 @@ namespace BugTracker.Application.Features.Tickets.Handlers.Queries
         public async Task<List<TicketDto>> Handle(GetTicketListRequest request, CancellationToken cancellationToken)
         {
             var tickets = await _ticketRepository.GetAllAsync();
-            return _mapper.Map<List<TicketDto>>(tickets);
+            return tickets == null ? null : _mapper.Map<List<TicketDto>>(tickets);            
         }
     }
 }

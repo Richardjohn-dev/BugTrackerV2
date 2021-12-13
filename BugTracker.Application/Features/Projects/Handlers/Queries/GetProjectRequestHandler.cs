@@ -22,7 +22,7 @@ namespace BugTracker.Application.Features.Projects.Handlers.Queries
         public async Task<ProjectDto> Handle(GetProjectRequest request, CancellationToken cancellationToken)
         {
             var project = await _projectRepository.GetAsync(request.Id);
-            return _mapper.Map<ProjectDto>(project);
+            return  project == null ? null : _mapper.Map<ProjectDto>(project);
         }
     }
 }

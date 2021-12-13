@@ -12,6 +12,14 @@ namespace BugTracker.Application.Contracts.Persistence
         Task<T> GetAsync(int id);
 
         Task<T> Get(Expression<Func<T, bool>> expression, List<string> includes = null);
+
+        //Task<IList<T>> GetAll(
+        //  // define parameters
+        //  Expression<Func<T, bool>> expression = null,
+        //  Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+        //  List<string> includes = null
+        //  );
+
         Task<IReadOnlyList<T>> GetAllAsync();
         Task<bool> ExistsAsync(int id);
         //Task<bool> IsUniqueAsync(T entity, string tProperty, string uniqueString);
