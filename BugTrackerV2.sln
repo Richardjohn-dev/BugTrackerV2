@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTracker.API", "BugTracke
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4734E26C-7D6F-449E-B14B-2844F24372FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTracker.Application.UnitTests", "BugTracker.Application.UnitTests\BugTracker.Application.UnitTests.csproj", "{6A06ECC6-8546-4F40-BE45-DABAE82C00D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{80BB7A60-B825-4697-9DD6-7611AEAE5EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80BB7A60-B825-4697-9DD6-7611AEAE5EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80BB7A60-B825-4697-9DD6-7611AEAE5EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A06ECC6-8546-4F40-BE45-DABAE82C00D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A06ECC6-8546-4F40-BE45-DABAE82C00D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A06ECC6-8546-4F40-BE45-DABAE82C00D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A06ECC6-8546-4F40-BE45-DABAE82C00D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{728AEE2B-841B-4FC0-B565-7BF876F3F238} = {1B5E415F-0347-4CD9-AA9A-8C559F095514}
 		{08D2CCAE-CCC3-4F1C-AFCD-120F4B4A6416} = {35BB7376-78CD-4E9B-AB9D-A84AF07CA33D}
 		{80BB7A60-B825-4697-9DD6-7611AEAE5EAD} = {08D2CCAE-CCC3-4F1C-AFCD-120F4B4A6416}
+		{6A06ECC6-8546-4F40-BE45-DABAE82C00D4} = {4734E26C-7D6F-449E-B14B-2844F24372FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {48A19150-4814-4622-ABF9-3517ACD44F58}
